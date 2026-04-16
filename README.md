@@ -1,35 +1,7 @@
-<!-- # NST DVA Capstone 2 - Project Repository
+# NST DVA Capstone 2 - Project Repository
 
 > **Newton School of Technology | Data Visualization & Analytics**
 > A 2-week industry simulation capstone using Python, GitHub, and Tableau to convert raw data into actionable business intelligence.
-
----
-
-## Before You Start
-
-1. Rename the repository using the format `SectionName_TeamID_ProjectName`.
-2. Fill in the project details and team table below.
-3. Add the raw dataset to `data/raw/`.
-4. Complete the notebooks in order from `01` to `05`.
-5. Publish the final dashboard and add the public link in `tableau/dashboard_links.md`.
-6. Export the final report and presentation as PDFs into `reports/`.
-
-### Quick Start
-
-If you are working locally:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-jupyter notebook
-```
-
-If you are working in Google Colab:
-
-- Upload or sync the notebooks from `notebooks/`
-- Keep the final `.ipynb` files committed to GitHub
-- Export any cleaned datasets into `data/processed/`
 
 ---
 
@@ -37,19 +9,18 @@ If you are working in Google Colab:
 
 | Field | Details |
 |---|---|
-| **Project Title** | _To be filled by team_ |
-| **Sector** | _e.g. Retail, Finance, Healthcare, EdTech_ |
-| **Team ID** | _e.g. DVA-B1-T3_ |
-| **Section** | _To be filled by team_ |
-| **Faculty Mentor** | _To be filled by team_ |
+| **Project Title** | Brazilian E-Commerce |
+| **Sector** | E-commerce / Retail |
+| **Team ID** | G7 |
+| **Section** | B |
+| **Faculty Mentor** | Satyaki Das |
 | **Institute** | Newton School of Technology |
-| **Submission Date** | _To be filled by team_ |
 
 ### Team Members
 
 | Role | Name | GitHub Username |
 |---|---|---|
-| Project Lead | _Name_ | `github-handle` |
+| Project Lead | Saumya Kumar | `oksaumya` |
 | Data Lead | _Name_ | `github-handle` |
 | ETL Lead | _Name_ | `github-handle` |
 | Analysis Lead | _Name_ | `github-handle` |
@@ -61,15 +32,15 @@ If you are working in Google Colab:
 
 ## Business Problem
 
-_Describe the sector context, the decision-maker this project serves, and the core business challenge being addressed. Keep this to 3-5 sentences written in plain language, as if addressing a senior stakeholder._
+A large online marketplace wants to improve delivery reliability, customer satisfaction, and seller performance by analyzing order status, payment behavior, product attributes, delivery times, and review scores. The company needs to identify the main operational factors that cause delays, complaints, and revenue loss so it can make better decisions about fulfillment, seller management, and customer experience.
 
 **Core Business Question**
 
-> _State the single main question your Tableau dashboard and Python analysis will answer._
+> Which products, sellers, regions, and delivery patterns should management focus on to reduce service issues and improve revenue and repeat business?
 
 **Decision Supported**
 
-> _What action or decision will this analysis enable the stakeholder to take?_
+> This analysis will help the stakeholder decide where to improve operations first, such as which sellers to monitor, which regions face delivery issues, and which product categories need better fulfillment or customer support. It will also support decisions on how to reduce late deliveries, cancellations, and poor reviews to improve customer retention and repeat purchases.
 
 ---
 
@@ -77,23 +48,29 @@ _Describe the sector context, the decision-maker this project serves, and the co
 
 | Attribute | Details |
 |---|---|
-| **Source Name** | _e.g. World Bank, data.gov.in, Kaggle (raw only)_ |
-| **Direct Access Link** | _Paste the direct download or access URL_ |
-| **Row Count** | _Must be greater than 5,000_ |
-| **Column Count** | _Must be greater than 8 meaningful columns_ |
-| **Time Period Covered** | _e.g. Jan 2019 to Dec 2023_ |
-| **Format** | _e.g. CSV, JSON, Excel_ |
+| **Source Name** | Kaggle (raw) |
+| **Direct Access Link** | https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce |
+| **Row Count** | 100,000+ rows |
+| **Column Count** | 37 columns after merging the key tables for analysis |
+| **Time Period Covered** | 2016 to 2018 |
+| **Format** | CSV |
 
 **Key Columns Used**
 
 | Column Name | Description | Role in Analysis |
 |---|---|---|
-| _column_1_ | _What it means_ | _Used for KPI / filter / segmentation_ |
-| _column_2_ | _What it means_ | _Used for KPI / filter / segmentation_ |
-| _column_3_ | _What it means_ | _Used for KPI / filter / segmentation_ |
-| _column_4_ | _What it means_ | _Used for KPI / filter / segmentation_ |
+| `order_id` | Unique identifier for each order | Join key across tables |
+| `customer_id` | Unique identifier for each order customer | Customer-level analysis |
+| `order_purchase_timestamp` | Date and time the order was placed | Time trend and monthly KPI analysis |
+| `order_delivered_customer_date` | Date and time the order was delivered | Delivery delay analysis |
+| `order_estimated_delivery_date` | Estimated delivery date shown to customer | Delivery gap and service quality analysis |
+| `order_status` | Current status of the order | Cancellation / fulfillment analysis |
+| `review_score` | Customer satisfaction rating | Customer experience KPI |
+| `payment_value` | Total payment amount for the order | Revenue analysis |
+| `product_category_name` | Product category | Category performance analysis |
+| `seller_id` | Unique seller identifier | Seller performance analysis |
 
-For full column definitions, see [`docs/data_dictionary.md`](docs/data_dictionary.md).
+For full column definitions, see `docs/data_dictionary.md`.
 
 ---
 
@@ -101,11 +78,11 @@ For full column definitions, see [`docs/data_dictionary.md`](docs/data_dictionar
 
 | KPI | Definition | Formula / Computation |
 |---|---|---|
-| _e.g. Monthly Revenue Growth %_ | _What business outcome this tracks_ | _Show the exact formula or notebook reference_ |
-| _e.g. Customer Churn Rate_ | _What business outcome this tracks_ | _Show the exact formula or notebook reference_ |
-| _e.g. Repeat Purchase Rate_ | _What business outcome this tracks_ | _Show the exact formula or notebook reference_ |
-
-Document KPI logic clearly in `notebooks/04_statistical_analysis.ipynb` and `notebooks/05_final_load_prep.ipynb`.
+| Monthly Revenue Growth % | Tracks how revenue changes month over month | `(Current Month Revenue - Previous Month Revenue) / Previous Month Revenue * 100` |
+| Average Customer Review Score | Measures customer satisfaction | `Average of review_score` |
+| Late Delivery Rate | Tracks delivery performance issues | `Late deliveries / Total delivered orders * 100` |
+| Cancellation Rate | Measures order failure or business leakage | `Canceled orders / Total orders * 100` |
+| Repeat Purchase Rate | Measures customer retention behavior | `Customers with more than 1 order / Total customers * 100` |
 
 ---
 
@@ -114,38 +91,36 @@ Document KPI logic clearly in `notebooks/04_statistical_analysis.ipynb` and `not
 | Item | Details |
 |---|---|
 | **Dashboard URL** | _Paste Tableau Public link here_ |
-| **Executive View** | _Describe the high-level KPI summary view_ |
-| **Operational View** | _Describe the detailed drill-down view_ |
-| **Main Filters** | _List the interactive filters used_ |
+| **Executive View** | High-level view of revenue, delivery performance, review scores, and cancellations |
+| **Operational View** | Seller, category, region, and delivery drill-down analysis |
+| **Main Filters** | Date, state, product category, seller, order status |
 
-Store dashboard screenshots in [`tableau/screenshots/`](tableau/screenshots/) and document the public links in [`tableau/dashboard_links.md`](tableau/dashboard_links.md).
+Store dashboard screenshots in `tableau/screenshots/` and document the public links in `tableau/dashboard_links.md`.
 
 ---
 
 ## Key Insights
 
-_List 8-12 major findings from the analysis, written in decision language. Each insight should tell the reader what to think or act upon, not merely describe a chart._
-
-1. _Insight 1_
-2. _Insight 2_
-3. _Insight 3_
-4. _Insight 4_
-5. _Insight 5_
-6. _Insight 6_
-7. _Insight 7_
-8. _Insight 8_
+1. Late deliveries are expected to reduce customer review scores and repeat business.
+2. Some sellers are likely to contribute disproportionately to delays and complaints.
+3. A small number of product categories may drive most of the revenue and service issues.
+4. Certain regions or states may show weaker delivery performance than others.
+5. Canceled orders are expected to create measurable revenue leakage.
+6. Faster delivery is likely to be associated with higher satisfaction scores.
+7. Order volume may be seasonal, with visible peaks in certain months.
+8. Repeat customers are likely to contribute more stable revenue than one-time buyers.
 
 ---
 
 ## Recommendations
 
-_Provide 3-5 specific, actionable business recommendations, each linked directly to an insight above._
-
 | # | Insight | Recommendation | Expected Impact |
 |---|---|---|---|
-| 1 | _Which insight does this address?_ | _What should the stakeholder do?_ | _What measurable impact do you expect?_ |
-| 2 | _Which insight does this address?_ | _What should the stakeholder do?_ | _What measurable impact do you expect?_ |
-| 3 | _Which insight does this address?_ | _What should the stakeholder do?_ | _What measurable impact do you expect?_ |
+| 1 | Late deliveries affect satisfaction | Improve logistics monitoring for high-delay regions and sellers | Lower delay rate and better reviews |
+| 2 | Some sellers underperform | Create seller scorecards and corrective actions for weak performers | Better marketplace consistency |
+| 3 | Certain categories drive issues | Prioritize fulfillment planning for high-volume, high-complaint categories | Reduced complaints and cancellations |
+| 4 | Cancellations create revenue leakage | Track cancellation reasons and trigger alerts for risky orders | Lower revenue loss |
+| 5 | Repeat customers matter | Build retention campaigns for valuable customer groups | Higher repeat purchase rate |
 
 ---
 
@@ -157,8 +132,8 @@ SectionName_TeamID_ProjectName/
 |-- README.md
 |
 |-- data/
-|   |-- raw/                         # Original dataset (never edited)
-|   `-- processed/                   # Cleaned output from ETL pipeline
+|   |-- raw/
+|   `-- processed/
 |
 |-- notebooks/
 |   |-- 01_extraction.ipynb
@@ -181,9 +156,6 @@ SectionName_TeamID_ProjectName/
 |
 |-- docs/
 |   `-- data_dictionary.md
-|
-|-- DVA-oriented-Resume/
-`-- DVA-focused-Portfolio/
 ```
 
 ---
@@ -277,8 +249,6 @@ The project follows a structured 7-step workflow:
 
 ## Contribution Matrix
 
-This table must match evidence in GitHub Insights, PR history, and committed files.
-
 | Team Member | Dataset and Sourcing | ETL and Cleaning | EDA and Analysis | Statistical Analysis | Tableau Dashboard | Report Writing | PPT and Viva |
 |---|---|---|---|---|---|---|---|
 | _Member 1_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ |
@@ -301,5 +271,3 @@ _Declaration: We confirm that the above contribution details are accurate and ve
 All analysis, code, and recommendations in this repository must be the original work of the team listed above. Free-riding is tracked via GitHub Insights and pull request history. Any mismatch between the contribution matrix and actual commit history may result in individual grade adjustments.
 
 ---
-
-*Newton School of Technology - Data Visualization & Analytics | Capstone 2* -->
