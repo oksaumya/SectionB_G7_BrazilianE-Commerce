@@ -260,9 +260,9 @@ The project follows a structured 7-step workflow:
 
 _Declaration: We confirm that the above contribution details are accurate and verifiable through GitHub Insights, PR history, and submitted artifacts._
 
-**Team Lead Name:** _____________________________
+**Team Lead Name:** Saumya Kumar
 
-**Date:** _______________
+**Date:** 16/04/2026
 
 ---
 
