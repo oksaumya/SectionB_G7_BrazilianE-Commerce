@@ -21,8 +21,8 @@
 | Role | Name | GitHub Username |
 |---|---|---|
 | Project Lead | Saumya Kumar | `oksaumya` |
-| Data Lead | _Name_ | `github-handle` |
-| ETL Lead | _Name_ | `github-handle` |
+| Data Lead | Saman Iqbal | `sammyiqbal` |
+| ETL Lead | Saman Iqbal | `sammyiqbal` |
 | Analysis Lead | _Name_ | `github-handle` |
 | Visualization Lead | _Name_ | `github-handle` |
 | Strategy Lead | _Name_ | `github-handle` |
