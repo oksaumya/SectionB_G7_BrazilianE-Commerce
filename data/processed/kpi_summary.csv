@@ -1,0 +1,23 @@
+Category,KPI,Value
+Revenue,Total Revenue (BRL),15915872.32
+Revenue,Total Orders,99441
+Revenue,Total Items Sold,114092
+Revenue,Avg Order Value (BRL),160.05
+Delivery,Total Delivered Orders,96478
+Delivery,Avg Delivery Time (days),12.0
+Delivery,On-Time Delivery Rate (%),90.9
+Delivery,Late Delivery Rate (%),9.1
+Customers,Total Unique Customers,96096
+Customers,Repeat Customers,2997
+Customers,Repeat Purchase Rate (%),3.1
+Customers,Top Customer State,SP
+Products,Total Products,32951
+Products,Total Sellers,3095
+Products,Total Categories,71
+Products,Top Revenue Category,health_beauty
+Products,Avg Item Price (BRL),120.48
+Satisfaction,Avg Review Score,4.02
+Satisfaction,5-Star Rate (%),56.2
+Satisfaction,1-Star Rate (%),13.1
+Payments,Top Payment Method,credit_card
+Payments,Avg Installments,3.1
