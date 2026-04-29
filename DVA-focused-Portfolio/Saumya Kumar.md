@@ -6,4 +6,4 @@ Explore my portfolio and projects through the live website:
 
 Link to my Tableau Public:
 
-🔗 **[View My Tableau Profile]()**
+🔗 **[View My Tableau Profile](https://public.tableau.com/app/profile/saumya.kumar6613/vizzes)**
