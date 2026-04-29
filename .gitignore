@@ -18,5 +18,3 @@ __pycache__/
 # data/raw/
 # data/processed/
 
-# PPT build script (local only)
-ppt/build_ppt.py
