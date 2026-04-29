@@ -4,5 +4,5 @@
 - **Yash Kumar:** [Resume](https://drive.google.com/file/d/1fZFxerzcXXtf3OoYBiwguW0yFAbnyQFD/view?usp=sharing)
 - **Prakhar Srivastava:** [Resume]()
 - **Saman Iqbal Ansari:** [Resume](https://drive.google.com/file/d/1_huoDyO69-GjSp8R791DYreowy2h-N22/view?usp=drive_link)
-- **Arina Ali:** [Resume]()
+- **Arina Ali:** [Resume](https://drive.google.com/file/d/1SCa12XpFeCLT3Tie-uMzxjznOsWm0Xd0/view?usp=drive_link)
 - **Ayush Sahu:** [Resume]()
