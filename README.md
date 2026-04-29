@@ -127,13 +127,30 @@ Store dashboard screenshots in `tableau/screenshots/` and document the public li
 ## Repository Structure
 
 ```text
-SectionName_TeamID_ProjectName/
+SectionB_G7_BrazilianE-Commerce/
 |
 |-- README.md
+|-- TEAM_PROFILES.md
+|-- requirements.txt
+|-- PPT
 |
 |-- data/
 |   |-- raw/
+|   |   |-- olist_customers_dataset.csv
+|   |   |-- olist_geolocation_dataset.csv
+|   |   |-- olist_order_items_dataset.csv
+|   |   |-- olist_order_payments_dataset.csv
+|   |   |-- olist_order_reviews_dataset.csv
+|   |   |-- olist_orders_dataset.csv
+|   |   |-- olist_products_dataset.csv
+|   |   |-- olist_sellers_dataset.csv
+|   |   `-- product_category_name_translation.csv
 |   `-- processed/
+|       |-- cleaned_master.csv
+|       |-- kpi_summary.csv
+|       |-- revenue_forecast.csv
+|       |-- rfm_segment_summary.csv
+|       `-- rfm_segments.csv
 |
 |-- notebooks/
 |   |-- 01_extraction.ipynb
@@ -143,19 +160,24 @@ SectionName_TeamID_ProjectName/
 |   `-- 05_final_load_prep.ipynb
 |
 |-- scripts/
+|   |-- __init__.py
 |   `-- etl_pipeline.py
 |
-|-- tableau/
-|   |-- screenshots/
-|   `-- dashboard_links.md
+|-- tableau dashboard/
+|   |-- Brazillian EDA.twbx
+|   |-- Page1.png
+|   |-- Page2.png
+|   `-- Page3.png
 |
 |-- reports/
 |   |-- README.md
-|   |-- project_report_template.md
-|   `-- presentation_outline.md
+|   `-- project_report.pdf
 |
-|-- docs/
-|   `-- data_dictionary.md
+|-- DVA-focused-Portfolio/
+|   `-- Portfolio.md
+|
+`-- DVA-oriented-Resume/
+    `-- Resume.md
 ```
 
 ---
