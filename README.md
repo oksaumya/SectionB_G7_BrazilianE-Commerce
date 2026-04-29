@@ -275,7 +275,7 @@ The project follows a structured 7-step workflow:
 |---|---|---|---|---|---|---|---|
 | _Saumya Kumar_ | _Owner_ | _Support_ | _Support_ | __ | _Support_ | _Support_ | _Owner_ |
 | _Saman Iqbal_ | _Support_ | _Owner_ | _Owner_ | _Support_ | _Owner_ | __ | __ |
-| _Arina Ali_ | _Support_ | _Owner_ | __ | __ | _Support | _Owner_ | _Support_ |
+| _Arina Ali_ | _Support_ | _Owner_ | __ | __ | _Support_ | _Owner_ | _Support_ |
 | _Yash Kumar_ | __ | __ | __ | _Owner_ | _Owner_ | _Support_ | __ |
 | _Ayush Sahu_ | __ | __ | __ | __ | __ | __ | _Support_ |
 | _Prakhar Srivastava_ | __ | _Support_ | _Owner_ | _Support_ | __ | __ | _Support_ |
