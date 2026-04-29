@@ -13,16 +13,16 @@
 - **Tableau Public URL:** [Link](https://public.tableau.com/app/profile/yash.kumar3918)
 
 ## Team Member 3
-- **Name:** 
-- **Portfolio:** [Link]()
+- **Name:Prakhar Srivastava** 
+- **Portfolio:** [Link](https://dva-portfolio-six.vercel.app/)
 - **Resume:** [Link]()
 - **Tableau Public URL:** [Link]()
 
 ## Team Member 4
-- **Name:** 
-- **Portfolio:** [Link]()
-- **Resume:** [Link]()
-- **Tableau Public URL:** [Link]()
+- **Name: Saman Iqbal Ansari** 
+- **Portfolio:** [Link](https://sammyiqbal.github.io/sammy-portfolio/)
+- **Resume:** [Link](https://drive.google.com/file/d/1_huoDyO69-GjSp8R791DYreowy2h-N22/view?usp=drive_link)
+- **Tableau Public URL:** [Link](https://public.tableau.com/app/profile/saman.iqbal5804/vizzes)
 
 ## Team Member 5
 - **Name:** 
