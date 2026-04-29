@@ -273,12 +273,12 @@ The project follows a structured 7-step workflow:
 
 | Team Member | Dataset and Sourcing | ETL and Cleaning | EDA and Analysis | Statistical Analysis | Tableau Dashboard | Report Writing | PPT and Viva |
 |---|---|---|---|---|---|---|---|
-| _Saumya Kumar_ | _Owner_ | __ | _support_ | _support_ | __ | __ | _Owner_ |
-| _Saman Iqbal_ | __ | _Owner_ | _Owner_ | _Owner_ | _Owner_ | __ | __ |
-| _Arina Ali_ | _support_ | __ | __ | __ | __ | _Owner_ | _support_ |
-| _Yash Kumar_ | __ | __ | __ | _support_ | _support_ | __ | __ |
-| _Ayush Sahu_ | __ | __ | __ | __ | __ | __ | __ |
-| _Prakhar Srivastava_ | __ | __ | __ | __ | __ | __ | __ |
+| _Saumya Kumar_ | _Owner_ | _Support_ | _Support_ | __ | _Support_ | _Support_ | _Owner_ |
+| _Saman Iqbal_ | _Support_ | _Owner_ | _Owner_ | _Support_ | _Owner_ | __ | __ |
+| _Arina Ali_ | _Support_ | _Owner_ | __ | __ | _Support | _Owner_ | _Support_ |
+| _Yash Kumar_ | __ | __ | __ | _Owner_ | _Owner_ | _Support_ | __ |
+| _Ayush Sahu_ | __ | __ | __ | __ | __ | __ | _Support_ |
+| _Prakhar Srivastava_ | __ | _Support_ | _Owner_ | _Support_ | __ | __ | _Support_ |
 
 _Declaration: We confirm that the above contribution details are accurate and verifiable through GitHub Insights, PR history, and submitted artifacts._
 
