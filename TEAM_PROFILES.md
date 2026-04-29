@@ -26,9 +26,9 @@
 
 ## Team Member 5
 - **Name: Arina Ali** 
-- **Portfolio:** [Link]()
-- **Resume:** [Link]()
-- **Tableau Public URL:** [Link]()
+- **Portfolio:** [Link](https://arina-26.github.io/)
+- **Resume:** [Link](https://drive.google.com/file/d/1SCa12XpFeCLT3Tie-uMzxjznOsWm0Xd0/view?usp=sharing)
+- **Tableau Public URL:** [Link](https://public.tableau.com/app/profile/arina.ali3942/vizzes)
 
 ## Team Member 6
 - **Name: Ayush Sahu** 
