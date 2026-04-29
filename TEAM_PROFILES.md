@@ -7,10 +7,10 @@
 - **Tableau Public URL:** [Link]()
 
 ## Team Member 2
-- **Name:** 
-- **Portfolio:** [Link]()
-- **Resume:** [Link]()
-- **Tableau Public URL:** [Link]()
+- **Name: Yash Kumar**
+- **Portfolio:** [Link](https://yash-kumar-data-analytics-portfolio.vercel.app/)
+- **Resume:** [Link](https://drive.google.com/file/d/1fZFxerzcXXtf3OoYBiwguW0yFAbnyQFD/view?usp=sharing)
+- **Tableau Public URL:** [Link](https://public.tableau.com/app/profile/yash.kumar3918)
 
 ## Team Member 3
 - **Name:** 
