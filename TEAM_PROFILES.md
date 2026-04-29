@@ -25,13 +25,13 @@
 - **Tableau Public URL:** [Link](https://public.tableau.com/app/profile/saman.iqbal5804/vizzes)
 
 ## Team Member 5
-- **Name:** 
+- **Name: Arina Ali** 
 - **Portfolio:** [Link]()
 - **Resume:** [Link]()
 - **Tableau Public URL:** [Link]()
 
 ## Team Member 6
-- **Name:** 
+- **Name: Ayush Sahu** 
 - **Portfolio:** [Link]()
 - **Resume:** [Link]()
 - **Tableau Public URL:** [Link]()
