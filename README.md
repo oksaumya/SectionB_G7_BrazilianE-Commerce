@@ -21,12 +21,12 @@
 | Role | Name | GitHub Username |
 |---|---|---|
 | Project Lead | Saumya Kumar | `oksaumya` |
-| Data Lead | Saman Iqbal | `sammyiqbal` |
+| Data Lead | Saumya Kumar | `oksaumya` |
 | ETL Lead | Saman Iqbal | `sammyiqbal` |
-| Analysis Lead | _Name_ | `github-handle` |
-| Visualization Lead | _Name_ | `github-handle` |
-| Strategy Lead | _Name_ | `github-handle` |
-| PPT and Quality Lead | _Name_ | `github-handle` |
+| Analysis Lead | Saman Iqbal | `sammyiqbal` |
+| Visualization Lead | _Yash Kumar_ | `hypnoastic` |
+| Strategy Lead | _Arina_ | `arina-26` |
+| PPT and Quality Lead | _Saumya_ | `oksaumya` |
 
 ---
 
@@ -208,42 +208,42 @@ The project follows a structured 7-step workflow:
 
 **GitHub Repository**
 
-- [ ] Public repository created with the correct naming convention (`SectionName_TeamID_ProjectName`)
-- [ ] All notebooks committed in `.ipynb` format
-- [ ] `data/raw/` contains the original, unedited dataset
-- [ ] `data/processed/` contains the cleaned pipeline output
-- [ ] `tableau/screenshots/` contains dashboard screenshots
-- [ ] `tableau/dashboard_links.md` contains the Tableau Public URL
-- [ ] `docs/data_dictionary.md` is complete
-- [ ] `README.md` explains the project, dataset, and team
-- [ ] All members have visible commits and pull requests
+- [✔️] Public repository created with the correct naming convention (`SectionName_TeamID_ProjectName`)
+- [✔️] All notebooks committed in `.ipynb` format
+- [✔️] `data/raw/` contains the original, unedited dataset
+- [✔️] `data/processed/` contains the cleaned pipeline output
+- [✔️] `tableau/screenshots/` contains dashboard screenshots
+- [✔️] `tableau/dashboard_links.md` contains the Tableau Public URL
+- [✔️] `docs/data_dictionary.md` is complete
+- [✔️] `README.md` explains the project, dataset, and team
+- [✔️] All members have visible commits and pull requests
 
 **Tableau Dashboard**
 
-- [ ] Published on Tableau Public and accessible via public URL
-- [ ] At least one interactive filter included
-- [ ] Dashboard directly addresses the business problem
+- [✔️] Published on Tableau Public and accessible via public URL
+- [✔️] At least one interactive filter included
+- [✔️] Dashboard directly addresses the business problem
 
 **Project Report**
 
-- [ ] Final report exported as PDF into `reports/`
-- [ ] Cover page, executive summary, sector context, problem statement
-- [ ] Data description, cleaning methodology, KPI framework
-- [ ] EDA with written insights, statistical analysis results
-- [ ] Dashboard screenshots and explanation
-- [ ] 8-12 key insights in decision language
-- [ ] 3-5 actionable recommendations with impact estimates
-- [ ] Contribution matrix matches GitHub history
+- [✔️] Final report exported as PDF into `reports/`
+- [✔️] Cover page, executive summary, sector context, problem statement
+- [✔️] Data description, cleaning methodology, KPI framework
+- [✔️] EDA with written insights, statistical analysis results
+- [✔️] Dashboard screenshots and explanation
+- [✔️] 8-12 key insights in decision language
+- [✔️] 3-5 actionable recommendations with impact estimates
+- [✔️] Contribution matrix matches GitHub history
 
 **Presentation Deck**
 
-- [ ] Final presentation exported as PDF into `reports/`
-- [ ] Title slide through recommendations, impact, limitations, and next steps
+- [✔️] Final presentation exported as PDF into `reports/`
+- [✔️] Title slide through recommendations, impact, limitations, and next steps
 
 **Individual Assets**
 
-- [ ] DVA-oriented resume updated to include this capstone
-- [ ] Portfolio link or project case study added
+- [✔️] DVA-oriented resume updated to include this capstone
+- [✔️] Portfolio link or project case study added
 
 ---
 
@@ -251,12 +251,12 @@ The project follows a structured 7-step workflow:
 
 | Team Member | Dataset and Sourcing | ETL and Cleaning | EDA and Analysis | Statistical Analysis | Tableau Dashboard | Report Writing | PPT and Viva |
 |---|---|---|---|---|---|---|---|
-| _Member 1_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ |
-| _Member 2_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ |
-| _Member 3_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ |
-| _Member 4_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ |
-| _Member 5_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ |
-| _Member 6_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ | _Owner / support_ |
+| _Saumya Kumar_ | _Owner_ | __ | __ | _support_ | __ | __ | _Owner_ |
+| _Saman Iqbal_ | __ | _Owner_ | _Owner_ | _Owner_ | _Owner_ | __ | __ |
+| _Arina Ali_ | _support_ | __ | __ | __ | __ | _Owner_ | _support_ |
+| _Yash Kumar_ | __ | __ | __ | _support_ | _support_ | __ | __ |
+| _Ayush Sahu_ | __ | __ | __ | __ | __ | __ | __ |
+| _Prakhar Srivastava_ | __ | __ | __ | __ | __ | __ | __ |
 
 _Declaration: We confirm that the above contribution details are accurate and verifiable through GitHub Insights, PR history, and submitted artifacts._
 
