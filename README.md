@@ -130,9 +130,8 @@ Store dashboard screenshots in `tableau/screenshots/` and document the public li
 SectionB_G7_BrazilianE-Commerce/
 |
 |-- README.md
-|-- TEAM_PROFILES.md
 |-- requirements.txt
-|-- PPT
+|-- .gitignore
 |
 |-- data/
 |   |-- raw/
@@ -163,21 +162,31 @@ SectionB_G7_BrazilianE-Commerce/
 |   |-- __init__.py
 |   `-- etl_pipeline.py
 |
-|-- tableau dashboard/
+|-- tableau/
 |   |-- Brazillian EDA.twbx
-|   |-- Page1.png
-|   |-- Page2.png
-|   `-- Page3.png
+|   |-- tableau_public.md
+|   `-- screenshots/
+|       |-- Page1.png
+|       |-- Page2.png
+|       `-- Page3.png
 |
 |-- reports/
-|   |-- README.md
-|   `-- project_report.pdf
+|   |-- project_report.pdf
+|   `-- presentation.pdf
 |
 |-- DVA-focused-Portfolio/
-|   `-- Portfolio.md
+|   |-- Saumya Kumar.md
+|   |-- Saman Iqbal Ansari.md
+|   |-- Arina Ali.md
+|   |-- Yash Kumar.md
+|   `-- Prakhar Srivastava.md
 |
 `-- DVA-oriented-Resume/
-    `-- Resume.md
+    |-- Saumya Kumar.md
+    |-- Saman Iqbal Ansari.md
+    |-- Arina Ali.md
+    |-- Yash Kumar.md
+    `-- Prakhar Srivastava.md
 ```
 
 ---
