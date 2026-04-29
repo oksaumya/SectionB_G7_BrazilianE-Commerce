@@ -4,5 +4,5 @@
 - **Yash Kumar:** [Portfolio](https://yash-kumar-data-analytics-portfolio.vercel.app/)
 - **Prakhar Srivastava:** [Portfolio](https://dva-portfolio-six.vercel.app/)
 - **Saman Iqbal Ansari:** [Portfolio](https://sammyiqbal.github.io/sammy-portfolio/)
-- **Arina Ali:** [Portfolio]()
+- **Arina Ali:** [Portfolio](https://arina-26.github.io/)
 - **Ayush Sahu:** [Portfolio]()
