@@ -1,79 +1,180 @@
-"""Starter ETL pipeline for NST DVA Capstone 2.
-
-This script is intentionally lightweight. Teams should adapt it to their own dataset,
-but it provides a clean starting point for loading a raw CSV, standardizing columns,
-and exporting a processed file for notebook and Tableau use.
-"""
-
-# from __future__ import annotations
-
-# import argparse
-# from pathlib import Path
-
-# import pandas as pd
+from pathlib import Path
+import pandas as pd
 
 
-# def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
-#     """Convert column names to a clean snake_case format."""
-#     cleaned = (
-#         df.columns.str.strip()
-#         .str.lower()
-#         .str.replace(r"[^a-z0-9]+", "_", regex=True)
-#         .str.strip("_")
-#     )
-#     result = df.copy()
-#     result.columns = cleaned
-#     return result
+def run_pipeline(raw_dir: Path, output_path: Path) -> pd.DataFrame:
 
+    # -------------------------------------------------------------------------
+    # STEP 1 — Load raw files
+    # -------------------------------------------------------------------------
+    print(f"Loading raw data from {raw_dir} ...")
 
-# def basic_clean(df: pd.DataFrame) -> pd.DataFrame:
-#     """Apply a few safe default cleaning steps."""
-#     result = normalize_columns(df)
-#     result = result.drop_duplicates().reset_index(drop=True)
+    orders       = pd.read_csv(raw_dir / "olist_orders_dataset.csv")
+    order_items  = pd.read_csv(raw_dir / "olist_order_items_dataset.csv")
+    customers    = pd.read_csv(raw_dir / "olist_customers_dataset.csv")
+    sellers      = pd.read_csv(raw_dir / "olist_sellers_dataset.csv")
+    products     = pd.read_csv(raw_dir / "olist_products_dataset.csv")
+    payments     = pd.read_csv(raw_dir / "olist_order_payments_dataset.csv")
+    reviews      = pd.read_csv(raw_dir / "olist_order_reviews_dataset.csv")
+    geolocation  = pd.read_csv(raw_dir / "olist_geolocation_dataset.csv")
+    category_tr  = pd.read_csv(raw_dir / "product_category_name_translation.csv")
 
-#     for column in result.select_dtypes(include="object").columns:
-#         result[column] = result[column].astype("string").str.strip()
+    # -------------------------------------------------------------------------
+    # STEP 2 — Parse datetimes
+    # -------------------------------------------------------------------------
+    print("Parsing datetimes ...")
 
-#     return result
+    date_cols = [
+        'order_purchase_timestamp',
+        'order_approved_at',
+        'order_delivered_carrier_date',
+        'order_delivered_customer_date',
+        'order_estimated_delivery_date'
+    ]
+    for col in date_cols:
+        orders[col] = pd.to_datetime(orders[col])
 
+    order_items['shipping_limit_date'] = pd.to_datetime(
+        order_items['shipping_limit_date']
+    )
 
-# def build_clean_dataset(input_path: Path) -> pd.DataFrame:
-#     """Read a raw CSV file and return a cleaned dataframe."""
-#     df = pd.read_csv(input_path)
-#     return basic_clean(df)
+    # -------------------------------------------------------------------------
+    # STEP 3 — Fix typos & clean individual tables
+    # -------------------------------------------------------------------------
+    print("Fixing typos ...")
 
+    # Products — fix column name typos
+    products.rename(columns={
+        'product_name_lenght'       : 'product_name_length',
+        'product_description_lenght': 'product_description_length'
+    }, inplace=True)
 
-# def save_processed(df: pd.DataFrame, output_path: Path) -> None:
-#     """Write the cleaned dataframe to disk, creating the parent folder if needed."""
-#     output_path.parent.mkdir(parents=True, exist_ok=True)
-#     df.to_csv(output_path, index=False)
+    # Products — merge English category names
+    products = products.merge(category_tr, on='product_category_name', how='left')
+    products['product_category_name_english'] = (
+        products['product_category_name_english'].fillna('unknown')
+    )
 
+    # Products — fill numeric nulls with median
+    for col in ['product_weight_g', 'product_length_cm',
+                'product_height_cm', 'product_width_cm']:
+        products[col] = products[col].fillna(products[col].median())
 
-# def parse_args() -> argparse.Namespace:
-#     parser = argparse.ArgumentParser(description="Run the Capstone 2 starter ETL pipeline.")
-#     parser.add_argument(
-#         "--input",
-#         required=True,
-#         type=Path,
-#         help="Path to the raw CSV file in data/raw/.",
-#     )
-#     parser.add_argument(
-#         "--output",
-#         required=True,
-#         type=Path,
-#         help="Path to the cleaned CSV file in data/processed/.",
-#     )
-#     return parser.parse_args()
+    # Products — drop columns not needed for analysis
+    products.drop(columns=[
+        'product_name_length',
+        'product_description_length',
+        'product_photos_qty',
+        'product_category_name'       # keeping English version only
+    ], errors='ignore', inplace=True)
 
+    # Geolocation — deduplicate by averaging lat/lng per zip code
+    geolocation = (
+        geolocation
+        .groupby('geolocation_zip_code_prefix')
+        .agg(
+            geolocation_lat=('geolocation_lat', 'mean'),
+            geolocation_lng=('geolocation_lng', 'mean')
+        )
+        .reset_index()
+    )
 
-# def main() -> None:
-#     args = parse_args()
-#     cleaned_df = build_clean_dataset(args.input)
-#     save_processed(cleaned_df, args.output)
-#     print(f"Processed dataset saved to: {args.output}")
-#     print(f"Rows: {len(cleaned_df)} | Columns: {len(cleaned_df.columns)}")
+    # Reviews — fill missing comment text
+    reviews['review_comment_message'] = (
+        reviews['review_comment_message'].fillna('no comment')
+    )
+    reviews = reviews[['order_id', 'review_score', 'review_comment_message']]
 
+    # -------------------------------------------------------------------------
+    # STEP 4 — Merge all tables into master
+    # -------------------------------------------------------------------------
+    print("Merging tables ...")
 
-# if __name__ == "__main__":
-#     main()
+    # Aggregate payments to order level
+    payments_agg = (
+        payments
+        .groupby('order_id')
+        .agg(
+            payment_type=('payment_type', 'first'),
+            payment_installments=('payment_installments', 'sum'),
+            payment_value=('payment_value', 'sum')
+        )
+        .reset_index()
+    )
 
+    master = orders.copy()
+    master = master.merge(order_items,   on='order_id',    how='left')
+    master = master.merge(products,      on='product_id',  how='left')
+    master = master.merge(sellers,       on='seller_id',   how='left')
+    master = master.merge(customers,     on='customer_id', how='left')
+    master = master.merge(payments_agg,  on='order_id',    how='left')
+    master = master.merge(reviews,       on='order_id',    how='left')
+    master = master.merge(
+        geolocation.rename(columns={
+            'geolocation_zip_code_prefix': 'customer_zip_code_prefix',
+            'geolocation_lat'            : 'customer_lat',
+            'geolocation_lng'            : 'customer_lng'
+        }),
+        on='customer_zip_code_prefix',
+        how='left'
+    )
+
+    # -------------------------------------------------------------------------
+    # STEP 5 — Feature engineering
+    # -------------------------------------------------------------------------
+    print("Engineering features ...")
+
+    # Time features
+    master['order_year']         = master['order_purchase_timestamp'].dt.year
+    master['order_month']        = master['order_purchase_timestamp'].dt.month
+    master['order_month_name']   = master['order_purchase_timestamp'].dt.strftime('%b')
+    master['order_day_of_week']  = master['order_purchase_timestamp'].dt.strftime('%A')
+    master['order_quarter']      = master['order_purchase_timestamp'].dt.quarter
+
+    # Delivery features
+    master['delivery_time_days'] = (
+        master['order_delivered_customer_date']
+        - master['order_purchase_timestamp']
+    ).dt.days
+
+    master['estimated_delivery_days'] = (
+        master['order_estimated_delivery_date']
+        - master['order_purchase_timestamp']
+    ).dt.days
+
+    master['delay_days'] = (
+        master['order_delivered_customer_date']
+        - master['order_estimated_delivery_date']
+    ).dt.days
+
+    master['is_late'] = (
+        master['order_delivered_customer_date']
+        > master['order_estimated_delivery_date']
+    ).astype('Int64')
+
+    # Revenue feature
+    master['total_item_value'] = master['price'] + master['freight_value']
+
+    # -------------------------------------------------------------------------
+    # STEP 6 — Final cleanup
+    # -------------------------------------------------------------------------
+    print("Final cleanup ...")
+
+    # Only keep rows where order_status is meaningful for analysis
+    # (keep all statuses — cancellations are part of the business problem)
+
+    # Reset index cleanly
+    master = master.reset_index(drop=True)
+
+    # -------------------------------------------------------------------------
+    # STEP 7 — Save output
+    # -------------------------------------------------------------------------
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    master.to_csv(output_path, index=False)
+
+    size_mb = output_path.stat().st_size / (1024 * 1024)
+    print(f"Done → {output_path}")
+    print(f"Rows: {master.shape[0]:,}  |  Columns: {master.shape[1]}  |  "
+          f"Size: {size_mb:.1f} MB")
+
+    return master
